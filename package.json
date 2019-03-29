@@ -1,0 +1,14 @@
+{
+  "name": "grappceries",
+  "version": "1.0.0",
+  "description": "A groceries purchasing organizer app",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "set NODE_ENV=test&& jasmine"
+  },
+  "keywords": [
+    "grappceries"
+  ],
+  "author": "Cesar Jimenez",
+  "license": "ISC"
+}
