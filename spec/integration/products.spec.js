@@ -68,6 +68,28 @@ describe("routes : products", () => {
           });
       });
     });
+
+    it("should not create a new product that fails validations", done => {
+      const options = {
+        url: `${base}/${this.list.id}/products/create`,
+        form: {
+          name: "a",
+          purchased: false
+        }
+      };
+
+      request.post(options, (err, res, body) => {
+        Product.findOne({ where: { name: "a" } })
+          .then(product => {
+            expect(product).toBeNull();
+            done();
+          })
+          .catch(err => {
+            console.log(err);
+            done();
+          });
+      });
+    });
   });
 
   describe("GET /lists/:listId/products/:id", () => {
