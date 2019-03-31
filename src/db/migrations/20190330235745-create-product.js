@@ -14,6 +14,7 @@ module.exports = {
       },
       purchased: {
         allowNull: false,
+        default: false,
         type: Sequelize.BOOLEAN
       },
       createdAt: {

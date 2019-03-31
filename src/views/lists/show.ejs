@@ -7,9 +7,26 @@
     <% include ../static/partials/navbar.ejs %>
 
     <main class="container">
-      <h1>List: <%= list.name %></h1>
+      <h1>List Name: <%= list.name %></h1>
+      <hr />
+
+      <h1>Products</h1>
+
+      <ul class="list-group">
+        <% list.products.forEach((product) => { %>
+        <li class="list-group-item">
+          <a href="/lists/<%= list.id %>/products/<%= product.id %>">
+            <%= product.name %>
+          </a>
+        </li>
+        <% }) %>
+      </ul>
 
       <a href="/lists/<%= list.id %>/edit" class="btn btn-warning">Edit</a>
+
+      <a href="/lists/<%= list.id %>/products/new" class="btn btn-success"
+        >New Product</a
+      >
 
       <form
         style="display:initial"

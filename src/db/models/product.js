@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       purchased: {
         type: DataTypes.BOOLEAN,
+        default: false,
         allowNull: false
       },
       listId: {
