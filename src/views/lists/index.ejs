@@ -7,15 +7,29 @@
     <main class="container">
       <% include ../static/partials/navbar.ejs %>
 
-      <h1>Lists</h1>
+      <h1 class="lists-heading">Lists</h1>
+      <a href="/lists/new" class="btn btn-primary btn-lg newList-btn"
+        >New List</a
+      >
 
-      <ul class="list-group">
-        <% lists.forEach((list) => { %>
-        <li class="list-group-item">
-          <a href="/lists/<%= list.id %>"> <%= list.name %> </a>
-        </li>
-        <% }) %>
-      </ul>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="tableHeader list-name" scope="col">Name</th>
+            <th class="tableHeader items-number" scope="col"># of Items</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% lists.forEach((list) => { %>
+          <tr class="tableRow">
+            <td id="name">
+              <a href="/lists/<%= list.id %>"><%= list.name %></a>
+            </td>
+            <td id="numberOfItems">5 items</td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
     </main>
   </body>
 </html>

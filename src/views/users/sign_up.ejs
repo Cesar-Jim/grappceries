@@ -7,9 +7,12 @@
     <% include ../static/partials/navbar.ejs %>
 
     <main class="container">
-      <% include ../static/partials/messages.ejs %>
+      <% include ../static/partials/messages.ejs %> <% if(currentUser) { %>
 
-      <h1>Sign up</h1>
+      <h1 class="signedIn-Heading">You are already signed in...</h1>
+
+      <% } else { %>
+      <h1 class="signUp-heading">Sign up</h1>
 
       <form action="/users" method="post">
         <div class="form-group">
@@ -51,8 +54,11 @@
           />
         </div>
 
-        <button type="submit" class="btn btn-primary">Sign up</button>
+        <button type="submit" class="btn btn-primary signUp-btn">
+          Sign up
+        </button>
       </form>
+      <% } %>
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>
